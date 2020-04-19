@@ -11,14 +11,73 @@
     <div class="wrap">
         <h2> SIGN UP HERE</h2>
         <form>
-            <input type="text" placeholder="first name" required>
-            <input type="text" placeholder="last name" required>
-            <input type="text" placeholder="email" required>
+            <input type="text" placeholder="firstname" required>
+            <input type="text" placeholder="lastname" required>
+            <input type="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
             <input type="text" placeholder="username" required>
+            <input type="text" placeholder="mobile" pattern="^\d{10}$" required>
             <input type="text" placeholder="password" required>
+            <input type="text" placeholder="confirm password" required>
             <input type="submit" value="submit">
         </form>
 
+        <script>
+            function validation()
+            {
+                var fn=document.getElementById("firstname").value;
+                var ln=document.getElementById("lastname").value;
+                var em=document.getElementById("email").value;
+                var un=document.getElementById("username").value;
+                var mob=document.getElementById("mobile").value;
+                var pas=document.getElementById("password").value;
+                var cps=document.getElementById("confirm password").value;
+                var mob=/^\d{10}$/;
+                var em=/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+
+                if(fn==""){
+                    alert('please enter the firstname');
+                }
+                else if(ln=="")
+                {
+                    alert('please enter the lastname');
+                }
+                else if(em=="")
+                {
+                    if(em.value.match(em)){
+                        alert('email is validated');
+                    }
+                    else{
+                        alert('email is not validated');
+                    }
+                }
+               
+                else if(mob==""){
+                    alert('please enter your mobile number');
+                }
+                else if(mob.length<=10){
+                    alert('mobile number should have 10 digits');
+                }
+                else if(isNaN(mob)){
+                    alert('mobile number can only be numbers');
+                }
+                else if(pas==""){
+                    alert('please enter your password');
+                }
+                else if(pas.length<=8){
+                    alert('password is weak');
+                }
+                else if('pas.length<=12'){
+                    alert('password is not strong');
+                }
+                else if(pas!=cps){
+                    alert('password is not matching, try again ')
+                }
+                
+                else{
+                    alert('sign up success');
+                }
+            }
+        </script>
     </div>
 </body>
 </html>

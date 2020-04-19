@@ -11,14 +11,32 @@
     <div class="login-box">
     <h1>Login</h1>
     <div class="textbox">
-    <input type="text" placeholder="username" name="" value="">
+    <input type="text" placeholder="username" id="name" name="" value="" required>
     </div>
 
     <div class="textbox">
-        <input type="password" placeholder="password" name="" value="">
+        <input type="password" placeholder="password" id="pas" name="" value="" required>
         </div>
 
-        <button type="button" class="login-btn">SIGN IN</button>
+        <button type="button" class="login-btn" onclick="log()">SIGN IN</button>
     </div>
+    <script>
+        function log()
+        {
+            var username = document.getElementById("name").value;
+
+            var password = document.getElementById("pas").value;
+
+            if(username=="amal" && password=="12345678"){
+                alert("logged in successfully");
+
+            }
+            else{
+                alert("Invalid Check again");
+            }
+    
+
+        }
+    </script>
 </body>
 </html>
